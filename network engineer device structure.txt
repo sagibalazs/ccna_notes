@@ -1,0 +1,64 @@
+NE – Device Documentation Master Structure (Final)
+
+(Used for all controllers, routers, switches, firewalls, APs, etc.)
+
+1. Definition
+
+Clear, precise explanation of what the device is.
+
+2. Problem It Solves
+
+Why this device exists; what technical limitations it addresses.
+
+3. Why & How It Solves the Problem
+
+High-level mechanism and logic behind the device.
+
+4. Context / Short Story / Evolution
+
+Chronological development, technological milestones, why changes happened.
+
+5. Types / Classification
+
+All variants of the device category, and what differentiates them.
+
+6. How Each Type Works
+
+Detailed explanation of each subtype individually.
+
+7. Deployment → Network Topology
+
+Where the device is placed in a network
+
+CLI-style network topology diagram (switches, routers, APs, ports, flows).
+
+8. Hardware & Software Topology
+
+Internal structure of the device
+
+CLI-style hardware + software architecture diagram
+(CPU, NPU, ASICs, RAM, Flash, ports, processes, OS layers.)
+
+9. Use Cases
+
+Typical enterprise deployments and purpose.
+
+10. Best Practices
+
+What to do in real networks.
+
+11. No-Go Practices
+
+What must NOT be done; common pitfalls.
+
+12. Importance
+
+Why this device is relevant in modern enterprise networking.
+
+13. Pros & Cons
+
+Balanced evaluation from an engineering viewpoint.
+
+14. TL;DR Summary
+
+Short, crisp recap of everything important.
