@@ -1,0 +1,167 @@
+
+en
+conf t
+no ip domain lookup
+service password-encryption
+
+
+enable secret cisco
+user admin pass cisco
+
+hostname SW
+ip domain name htl.local
+ip name-server 8.8.8.8
+
+
+ip ssh ver 2
+cryp key gen rsa
+2048
+
+line con 0 
+pass cisco
+login
+logging sync
+
+line vty 0 1
+transport input ssh
+login local
+logging sync
+line vty 2 15
+transport input none
+end
+
+int range fa0/1 - 24
+shut
+
+int range gig0/1 - 2
+shut 
+
+
+
+end
+wr
+copy run start
+
+sh ip int brief
+sh vlan brief
+
+## VLans
+
+conf t
+
+vlan 99
+name MGMT
+
+vlan 999
+name NATIVE
+
+vlan 10
+name first
+vlan 20
+name second
+vlan 30
+name third
+
+# for each vlan fa /gig interface!!!!!!!!!!!!!!!!!!!
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+no shut
+
+# for each trunk port !!!!!!!!!!!!!!
+
+int [interface]
+switchport mode trunk
+switchport trunk native vlan 999
+switchport trunk allowed vlan [all, 10, 20, (add)(all)]
+
+# MGMT vlan config !!!!!!!!!!!
+interface vlan 99
+ip addr [ip addr, subnetmask]
+no shut
+
+# NATIVE vlan config !!!!!!!!!!!!!!
+int [int]/XY
+
+## port security
+
+int range fa0/1 - 24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+
+wr
+copy run start
+sh vlan brief
+
+
+
+
+## gpt 
+
+
+en
+conf t
+no ip dom loo
+ser pass enc
+en sec cisco
+usr admin priv 15 sec cisco
+
+ip dom name htl.local
+ip name-server 8.8.8.8
+
+ip ssh ver 2
+crypto key gen rsa
+2048
+
+line con 0 
+ pass cisco
+ login
+ log sync
+
+line vty 0 15
+ trans inp ssh
+ login local
+ log sync
+
+int range fa0/1 - 24
+ shut
+
+## VLANs
+
+vlan 99
+ name MAN
+
+vlan 999
+ name NATI
+
+vlan 10
+ name first
+vlan 20
+ name second
+vlan 30
+ name third
+
+int range fa0/1 - 24
+ switchport mode access
+ switchport access vlan 10
+
+int [interface]
+ switchport mode trunk
+ switchport trunk allowed vlan [all, 10, 20]  # Specify allowed VLANs here
+
+int vlan 99
+ ip addr [ip addr] [subnet mask]
+ no shut
+
+## Port Security
+
+int range fa0/1 - 24
+ switchport port-security
+ switchport port-security max 2
+ switchport port-security violation shut
+ switchport port-security mac-address sticky
+
+wr
