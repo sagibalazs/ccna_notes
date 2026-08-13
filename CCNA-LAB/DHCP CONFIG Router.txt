@@ -1,0 +1,157 @@
+
+# DHCP CONFIG !!Router!!
+
+
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.192
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.128
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.254.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+
+ip dhcp pool Management
+ network 192.168.0.0 255.255.255.240
+ default-router 192.168.0.1
+ dns-server 8.8.8.8
+
+# interface config router
+
+# Main interface configuration (trunk connection to the switch)
+# No ip address on the main interface
+# Ensure the interface is up
+
+int gig xxxx
+ no ip address             
+ no shutdown               
+
+# Subinterface for VLAN 10
+# Encapsulation for VLAN 10
+# Gateway for VLAN 10
+# Ensure the subinterface is up
+
+int gig0/1.10
+ encapsulation dot1Q 10    
+ ip address 192.168.10.1 255.255.255.192  
+ no shutdown               
+
+int gig0/1.20
+ encapsulation dot1Q 20 
+ ip address 192.168.20.1 255.255.255.128  
+ no shutdown 
+
+int gig0/1.30
+ encapsulation dot1Q 30  
+ ip address 192.168.30.1 255.255.254.0
+ no shutdown 
+ 
+int gig0/1.99
+encapsulation dot1Q 99 
+ip address 192.168.0.1 255.255.255.240
+no shut
+
+int gig0/1.999
+encapsulation dot1Q 999
+ip address 192.168.0.17 255.255.255.252
+no shut
+
+
+
+
+# Subinterface for VLAN 20
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20    # Encapsulation for VLAN 20
+ ip address 192.168.20.1 255.255.255.128  # Gateway for VLAN 20
+ no shutdown               # Ensure the subinterface is up
+
+# Subinterface for VLAN 30
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30    # Encapsulation for VLAN 30
+ ip address 192.168.30.1 255.255.254.0    # Gateway for VLAN 30
+ no shutdown               # Ensure the subinterface is up
+
+# Subinterface for Management VLAN (VLAN 99)
+interface GigabitEthernet0/0.99
+ encapsulation dot1Q 99    # Encapsulation for VLAN 99
+ ip address 192.168.0.1   255.255.255.240   # Gateway for Management VLAN
+ no shutdown               # Ensure the subinterface is up
+
+# Subinterface for Native VLAN (VLAN 999, if needed for specific management or protocol)
+interface GigabitEthernet0/0.999
+ encapsulation dot1Q 999    # Encapsulation for Native VLAN
+ ip address 192.168.0.17   255.255.255.252   # Gateway for Native VLAN
+ no shutdown                # Ensure the subinterface is up
+
+
+
+# SW config
+
+## VLAN CONFIG
+
+conf t
+
+vlan 99
+name mgmt
+
+vlan 999
+name native
+
+vlan 10 
+name off
+
+vlan 20
+name pr
+
+vlan 30
+name fin
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+no shut
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+no shut
+
+int fa0/3
+switchport mode access
+switchport access vlan 30
+no shut
+
+int fa0/24
+switchport trunk native vlan 999
+switchport trunk allowed vlan 10,20,30,99
+no shut
+
+
+int gig0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,99
+switchport trunk native vlan 999
+no shut
+
+int gig0/2
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,99
+switchport trunk native vlan 999
+no shut
+
+# Set ip addr ad defgateway for MGMT vlan !!!!!
+
+int vlan 99
+ip address [ipadrr , subnetmask]
+no shut
+
+ip default-gateway 192.168.0.98
+
+
+
