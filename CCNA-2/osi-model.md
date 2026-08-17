@@ -28,8 +28,8 @@ Every device and protocol links to its own future doc (`./devices/…`, `./proto
 | **5 · Session** 🤝 | *(no dedicated box — session state lives in hosts)* | [RPC](./protocols/rpc.md) ⚪ · [NetBIOS](./protocols/netbios.md) ⚪ · [SIP](./protocols/sip.md) ⚪ · [L2TP](./protocols/l2tp.md) ⚪ · [PPTP](./protocols/pptp.md) ⚪ |
 | **4 · Transport** 🚚 | [L4 Load Balancer](./devices/load-balancer.md) · [Stateful Firewall](./devices/stateful-firewall.md) *(L3–L4)* | [TCP](./protocols/tcp.md) 🟢 · [UDP](./protocols/udp.md) 🟢 · [QUIC](./protocols/quic.md) ⚪ ² |
 | **3 · Network** 🧭 | [Router](./devices/router.md) · [Layer 3 / Multilayer Switch](./devices/layer-3-switch.md) · [Packet-filter Firewall](./devices/packet-filter-firewall.md) | [IPv4](./protocols/ipv4.md) 🟢 · [IPv6](./protocols/ipv6.md) 🟢 · [ICMP](./protocols/icmp.md) 🟢 · [ICMPv6](./protocols/icmpv6.md) 🟢 · [OSPF](./protocols/ospf.md) 🟢🔵🟣 · [EIGRP](./protocols/eigrp.md) 🔵🟣 · [BGP](./protocols/bgp.md) 🔵🟣 · [IS-IS](./protocols/is-is.md) 🟠 · [RIP](./protocols/rip.md) ⚪ · [IGMP](./protocols/igmp.md) 🔵 · [IPsec (ESP/AH)](./protocols/ipsec.md) 🟢🔵 · [GRE](./protocols/gre.md) 🔵🟣 · [HSRP](./protocols/hsrp.md) 🟢🔵 · [VRRP](./protocols/vrrp.md) 🟢🔵 · [GLBP](./protocols/glbp.md) 🔵 · [NAT](./protocols/nat.md) 🟢 |
-| **2 · Data Link** 🔗 | [Switch](./devices/switch.md) · [Bridge](./devices/bridge.md) · [NIC](./devices/nic.md) · [Wireless AP](./devices/wireless-access-point.md) · [WLC](./devices/wireless-lan-controller.md) *(partly)* | [Ethernet 802.3](./protocols/ethernet.md) 🟢 · [Wi-Fi 802.11](./protocols/wifi-802-11.md) 🟢 · [802.1Q](./protocols/dot1q.md) 🟢 · [STP](./protocols/stp.md) 🟢 · [RSTP](./protocols/rstp.md) 🟢 · [LACP](./protocols/lacp.md) 🟢 · [PAgP](./protocols/pagp.md) 🟢 · [CDP](./protocols/cdp.md) 🟢 · [LLDP](./protocols/lldp.md) 🟢 · [ARP](./protocols/arp.md) 🟢 ³ · [VTP](./protocols/vtp.md) 🟢 · [DTP](./protocols/dtp.md) 🟢 · [MACsec 802.1AE](./protocols/macsec.md) 🔵 · [PPP](./protocols/ppp.md) ⚪ · [HDLC](./protocols/hdlc.md) ⚪ |
-| **1 · Physical** ⚡ | [Hub](./devices/hub.md) · [Repeater](./devices/repeater.md) · [Media Converter](./devices/media-converter.md) · [Transceiver/SFP](./devices/transceiver-sfp.md) · [Modem](./devices/modem.md) · cabling & connectors | [Ethernet PHY (10/100/1000/10GBASE)](./protocols/ethernet-phy.md) 🟢 · [RJ45](./protocols/rj45.md) 🟢 · [Single-mode Fiber](./protocols/single-mode-fiber.md) 🟢 · [Multimode Fiber](./protocols/multimode-fiber.md) 🟢 · [SFP/SFP+](./protocols/sfp.md) 🟢 · [RF / 802.11 PHY](./protocols/rf-radio.md) 🟢 · [DWDM](./protocols/dwdm.md) 🟠 · [RS-232](./protocols/rs-232.md) ⚪ · [Coaxial](./protocols/coaxial.md) ⚪ |
+| **2 · Data Link** 🔗 | [Switch](./devices/switch.md) · [Bridge](./devices/bridge.md) · [NIC](./devices/nic.md) · [Wireless AP](./devices/access-point.md#wireless-access-point) · [WLC](./devices/wireless-lan-controller.md) *(partly)* | [Ethernet 802.3](./protocols/ethernet.md) 🟢 · [Wi-Fi 802.11](./protocols/wifi-802-11.md) 🟢 · [802.1Q](./protocols/dot1q.md) 🟢 · [STP](./protocols/stp.md) 🟢 · [RSTP](./protocols/rstp.md) 🟢 · [LACP](./protocols/etherchannel-protocols.md#lacp) 🟢 · [PAgP](./protocols/etherchannel-protocols.md#pagp) 🟢 · [CDP](./protocols/cdp.md) 🟢 · [LLDP](./protocols/lldp.md) 🟢 · [ARP](./protocols/arp.md) 🟢 ³ · [VTP](./protocols/vtp.md) 🟢 · [DTP](./protocols/dtp.md) 🟢 · [MACsec 802.1AE](./protocols/macsec.md) 🔵 · [PPP](./protocols/ppp.md) ⚪ · [HDLC](./protocols/hdlc.md) ⚪ |
+| **1 · Physical** ⚡ | [Hub](./devices/hub.md) · [Repeater](./devices/repeater.md) · [Media Converter](./devices/media-converter.md) · [Transceiver/SFP](./devices/transceiver-sfp.md) · [Modem](./devices/modem.md) · cabling & connectors | [Ethernet PHY (10/100/1000/10GBASE)](./devices/ethernet-phy.md) 🟢 · [RJ45](./devices/rj45.md) 🟢 · [Single-mode Fiber](./devices/single-mode-fiber.md) 🟢 · [Multimode Fiber](./devices/multimode-fiber.md) 🟢 · [SFP/SFP+](./devices/transceiver-sfp.md#sfp) 🟢 · [RF / 802.11 PHY](./protocols/rf-radio.md) 🟢 · [DWDM](./devices/dwdm.md) 🟠 · [RS-232](./devices/rs-232.md) ⚪ · [Coaxial](./devices/coaxial.md) ⚪ |
 
 > **Contested placements** (the honest nuance): ¹ **TLS** — classic L6 home but runs over TCP; many call it L5/"L4.5" → [`tls.md`](./protocols/tls.md). ² **QUIC** — L4 work delivered *inside* [UDP](./protocols/udp.md). ³ **ARP** — usually **L2** (uses MAC frames) but resolves L3→L2, so texts argue "L2.5" → [`arp.md`](./protocols/arp.md).
 
@@ -157,7 +157,7 @@ Scenario: you type a URL and hit **Enter**. Follow the data down host A's stack,
 ```
 > **FCS** = CRC-32; the receiver recomputes it and silently drops a corrupt frame — that's your "CRC / input errors" counter on `show interfaces`. An [802.1Q](./protocols/dot1q.md) VLAN tag inserts 4 bytes after Src MAC (max frame → 1522). Preamble + SFD are clocking and sit outside the frame proper.
 
-**L1 · turn the FRAME into SIGNALS.** The PHY serialises the bits and encodes them for the medium: **voltage** on [copper](./protocols/rj45.md), **light** on [fiber](./protocols/single-mode-fiber.md), **radio symbols** on [RF](./protocols/rf-radio.md). Nothing here understands MACs or IPs.
+**L1 · turn the FRAME into SIGNALS.** The PHY serialises the bits and encodes them for the medium: **voltage** on [copper](./devices/rj45.md), **light** on [fiber](./devices/single-mode-fiber.md), **radio symbols** on [RF](./protocols/rf-radio.md). Nothing here understands MACs or IPs.
 
 ### ⬆️ De-encapsulation on the receiver
 
@@ -205,7 +205,7 @@ A switch touches **one layer** and rewrites **nothing**; a router touches **two*
 Rule of thumb: **a device operates at the highest layer whose header it reads and acts on.** That one sentence explains most of networking.
 
 - ⚡ **L1:** [hubs](./devices/hub.md), [repeaters](./devices/repeater.md), [media converters](./devices/media-converter.md), [transceivers/SFPs](./devices/transceiver-sfp.md), cabling — move *symbols*, not addresses. A hub repeats bits out every port, blind to MACs.
-- 🔗 **L2:** [switches](./devices/switch.md), [bridges](./devices/bridge.md), [NICs](./devices/nic.md), [APs](./devices/wireless-access-point.md) — read the **frame header** (destination MAC) and forward via the MAC table. Home of MAC learning/aging, frame switching, flooding (CCNA 1.13).
+- 🔗 **L2:** [switches](./devices/switch.md), [bridges](./devices/bridge.md), [NICs](./devices/nic.md), [APs](./devices/access-point.md#wireless-access-point) — read the **frame header** (destination MAC) and forward via the MAC table. Home of MAC learning/aging, frame switching, flooding (CCNA 1.13).
 - 🧭 **L3:** [routers](./devices/router.md) and [multilayer/L3 switches](./devices/layer-3-switch.md) — strip L2, read the **IP header**, longest-prefix-match, then re-frame for the next hop.
 - 🚚–📨 **L4-L7:** [stateful firewalls](./devices/stateful-firewall.md) track the L3/L4 5-tuple; [L4 load balancers](./devices/load-balancer.md) balance on ports; [NGFWs](./devices/next-generation-firewall.md), [WAFs](./devices/web-application-firewall.md), [proxies](./devices/proxy-server.md) climb to L7 to see actual application data.
 
@@ -242,21 +242,21 @@ Short definitions of every term used above. Internal link = its own future doc (
 | Term | One-line meaning | Links |
 |---|---|---|
 | **Encapsulation** | Wrapping upper-layer data in this layer's header (+ L2 trailer) as it descends. | [internal](./terms/encapsulation.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Encapsulation_(networking)) |
-| **De-encapsulation** | The reverse: each layer reads and strips its own header on the way up. | [internal](./terms/de-encapsulation.md) |
+| **De-encapsulation** | The reverse: each layer reads and strips its own header on the way up. | [internal](./terms/encapsulation.md#de-encapsulation) |
 | **PDU (Protocol Data Unit)** | The named data unit at a layer: Data/Segment/Packet/Frame/Bits. | [internal](./terms/pdu.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Protocol_data_unit) |
-| **Header** | Control info prepended by a layer (addresses, ports, flags). | [internal](./terms/header.md) |
-| **Trailer** | Control info *appended* — only L2 does this (the FCS). | [internal](./terms/trailer.md) |
-| **Payload** | The data a layer is carrying for the layer above. | [internal](./terms/payload.md) |
-| **Segment / Datagram** | L4 PDU — segment (TCP) / datagram (UDP). | [internal](./terms/segment.md) |
-| **Packet** | L3 PDU — IP header + payload. | [internal](./terms/packet.md) |
-| **Frame** | L2 PDU — MAC header + payload + FCS trailer. | [internal](./terms/frame.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Ethernet_frame) |
+| **Header** | Control info prepended by a layer (addresses, ports, flags). | [internal](./terms/encapsulation.md#header) |
+| **Trailer** | Control info *appended* — only L2 does this (the FCS). | [internal](./terms/encapsulation.md#trailer) |
+| **Payload** | The data a layer is carrying for the layer above. | [internal](./terms/encapsulation.md#payload) |
+| **Segment / Datagram** | L4 PDU — segment (TCP) / datagram (UDP). | [internal](./terms/pdu.md#segment) |
+| **Packet** | L3 PDU — IP header + payload. | [internal](./terms/pdu.md#packet) |
+| **Frame** | L2 PDU — MAC header + payload + FCS trailer. | [internal](./terms/pdu.md#frame) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Ethernet_frame) |
 | **MAC address** | 48-bit hardware address identifying a NIC on an L2 segment. | [internal](./terms/mac-address.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/MAC_address) |
-| **FCS (Frame Check Sequence)** | CRC-32 trailer used to detect frame corruption. | [internal](./terms/fcs.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Frame_check_sequence) |
+| **FCS (Frame Check Sequence)** | CRC-32 trailer used to detect frame corruption. | [internal](./terms/ethernet-frame-fields.md#fcs) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Frame_check_sequence) |
 | **TTL (Time To Live)** | IP-header hop counter, decremented per router; hits 0 → dropped. | [internal](./terms/ttl.md) · [ext: RFC 791](https://www.rfc-editor.org/rfc/rfc791) |
 | **MTU** | Largest payload a layer will carry in one PDU (Ethernet default 1500 B). | [internal](./terms/mtu.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/Maximum_transmission_unit) |
 | **EtherType** | 2-byte field naming the L3 protocol inside a frame (0x0800 = IPv4). | [internal](./terms/ethertype.md) · [ext: Wikipedia](https://en.wikipedia.org/wiki/EtherType) |
 | **Port number** | 16-bit L4 identifier for an application/service (e.g. 443). | [internal](./terms/port-number.md) |
-| **3-way handshake** | TCP session setup: SYN → SYN/ACK → ACK. | [internal](./terms/three-way-handshake.md) · [ext: RFC 9293](https://www.rfc-editor.org/rfc/rfc9293) |
+| **3-way handshake** | TCP session setup: SYN → SYN/ACK → ACK. | [internal](./terms/tcp-mechanics.md#three-way-handshake) · [ext: RFC 9293](https://www.rfc-editor.org/rfc/rfc9293) |
 | **Longest-prefix match** | Route-selection rule: most specific matching prefix wins. | [internal](./terms/longest-prefix-match.md) |
 | **ASIC** | Purpose-built forwarding chip enabling line-rate switching. | [internal](./terms/asic.md) |
 | **Reference model** | An abstract framework (like OSI) — describes, doesn't implement. | [internal](./terms/reference-model.md) |
